@@ -1,23 +1,30 @@
-const XP = parseInt(gets());
+//Variáveis
+let balance = 0;
 
-let Nivel;
+//Laço de repetição e Operadores
+for(let victory = 3; victory < 110; victory += 10) {
+    balance = balanceVictoryDefeat(victory, 2);
+    //Saída
+    console.log(`O Herói tem de saldo ${balance} e está no nível ${getLevel(balance)}`);
+} 
 
-if (XP >= 1.000 ) {
-    Nivel = "Ferro";
-} else if (XP >= 1.001 && XP <= 2.000){
-    Nivel = "Bronze"
-} else if (XP >= 2.001 && XP <= 5.000){
-    Nivel = "Prata"
-} else if (XP >= 5.001 && XP <= 7.000){
-    Nivel = "Ouro"
-} else if (XP >= 7.001 && XP <= 8.000){
-    Nivel = "Platina"
-} else if (XP >= 8.001 && XP <= 9.000){
-    Nivel = "Ascendente"
-} else if (XP >= 9.001 && XP <= 10.000){
-    Nivel = "Imortal"
-} else if (XP >= 10.001){
-    Nivel = "Radiante"
+//Funções
+function balanceVictoryDefeat(v, d) {
+    return v - d;
 }
-
-print (Nivel);
+function getLevel(b) {
+    //Estruturas de decisões
+    if(b <= 10)
+        return "Ferro";
+    if(b <= 20)
+        return "Bronze";
+    if(b <= 50)
+        return "Prata";
+    if(b <= 80)
+        return "Ouro";
+    if(b <= 90)
+        return "Diamante";
+    if(b <= 100)
+        return "Lendário";
+    return "Imortal";
+}
